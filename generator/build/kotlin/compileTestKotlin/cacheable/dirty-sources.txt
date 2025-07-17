@@ -1,0 +1,1 @@
+/home/tomar/dev/cross-cloud-cost-analytics-engine/generator/src/test/kotlin/cloudintel/generator/MainTest.kt
