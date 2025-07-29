@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24
+    container_name: clickhouse
+    ports:
+      - "8123:8123"   # HTTP interface
+      - "9000:9000"   # Native TCP
+    volumes:
+      - click_data:/var/lib/clickhouse
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8123/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  click_data:
